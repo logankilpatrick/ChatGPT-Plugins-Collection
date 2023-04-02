@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Notes Management Plugin API
+  version: 1.0.0
+servers:
+  - url: http://0.0.0.0:5003
+paths:
+  /notes/{username}:
+    post:
+      summary: Add a note for a user
+      operationId: addNote
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+      responses:
+        '200':
+          description: Note added successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+
+    get:
+      summary: Get all notes for a user
+      operationId: getNotes
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of notes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    content:
+                      type: string
+  /notes/{username}:
+    delete:
+      summary: Delete a note for a user
+      operationId: deleteNote
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+      responses:
+        '200':
+          description: Note deleted successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
