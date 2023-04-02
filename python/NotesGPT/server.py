@@ -5,7 +5,7 @@ import quart_cors
 from quart import request
 from pathlib import Path
 
-app = quart_cors.cors(quart.Quart(__name__), allow_origin=["https://chat.openai.com", "http://localhost:5003"])
+app = quart_cors.cors(quart.Quart(__name__), allow_origin=["https://chat.openai.com"])
 
 _NOTES_DIR = "notes"
 
@@ -55,7 +55,7 @@ async def plugin_logo():
 
 @app.get("/.well-known/ai-plugin.json")
 async def plugin_manifest():
-    with open("/.well-known/ai-plugin.json") as f:
+    with open("./.well-known/ai-plugin.json") as f:
         text = f.read()
         return quart.Response(text, mimetype="text/json")
 

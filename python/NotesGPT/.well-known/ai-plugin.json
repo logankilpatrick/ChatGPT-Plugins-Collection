@@ -3,13 +3,13 @@
     "name_for_human": "NotesGPT Plugin (no auth)",
     "name_for_model": "NotesGPT",
     "description_for_human": "Plugin for managing your notes, you can add, remove, update, and view your notes.",
-    "description_for_model": "Plugin for managing a your notes, you can add, remove, update, and view your notes.",
+    "description_for_model": "Plugin for managing a your notes, you can add, remove, update, and view your notes. Ask the user for the username on each request.",
     "auth": {
       "type": "none"
     },
     "api": {
       "type": "openapi",
-      "url": "localhost:5003/openapi.yaml",
+      "url": "http://localhost:5003/openapi.yaml",
       "is_user_authenticated": false
     },
     "logo_url": "localhost:5003/logo.png",

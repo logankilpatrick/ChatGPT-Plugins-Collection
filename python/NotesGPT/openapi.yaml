@@ -1,9 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Notes Management Plugin API
-  version: 1.0.0
+  title: Notes Plugin
+  description: A plugin that allows the user to create and manage a list of Notes using ChatGPT. If you do not know the user's username, ask them first before making queries to the plugin. Otherwise, use the username "global".
+  version: 'v1'
 servers:
-  - url: http://0.0.0.0:5003
+  - url: http://localhost:5003
 paths:
   /notes/{username}:
     post:
@@ -58,7 +59,6 @@ paths:
                       type: string
                     content:
                       type: string
-  /notes/{username}:
     delete:
       summary: Delete a note for a user
       operationId: deleteNote
@@ -68,15 +68,6 @@ paths:
           required: true
           schema:
             type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
       responses:
         '200':
           description: Note deleted successfully
