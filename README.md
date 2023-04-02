@@ -1,6 +1,6 @@
 # ChatGPT Plugins Collection ⭐️ (unofficial)
 
-An unofficial collection of Plugins for ChatGPT, in any programming language! Note: This is not an official OpenAI or ChatGPT related repository. It is a commmunity provided repo. Please use the code here at your own risk.
+An unofficial collection of Plugins for ChatGPT, in any programming language! Note: This is not an official OpenAI or ChatGPT related repository. It is a community provided repo. Please use the code here at your own risk.
 
 ## Submit a plugin 🫵 🔌
 
