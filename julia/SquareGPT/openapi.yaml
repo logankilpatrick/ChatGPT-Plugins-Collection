@@ -1,0 +1,34 @@
+openapi: 3.0.1
+info:
+  title: Take a number and square it
+  description: An API that allows the user to calculate the square of a given number.
+  version: v1
+servers:
+  - url: http://localhost:5002
+paths:
+  /square:
+    post:
+      operationId: calculateSquare
+      summary: Calculate the square of the input value
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: number
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: number
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+              example: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+              example: 'POST, OPTIONS'

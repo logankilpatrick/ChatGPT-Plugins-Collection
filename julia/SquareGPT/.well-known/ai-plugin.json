@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Take a number and square it",
+    "name_for_model": "Take a number and square it",
+    "description_for_human": "Plugin for Squaring a number",
+    "description_for_model": "Plugin for Squaring a number",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "PLUGIN_HOSTNAME/openapi.yaml",
+      "is_user_authenticated": false
+    },
+    "logo_url": "PLUGIN_HOSTNAME/logo.png",
+    "contact_email": "support@example.com",
+    "legal_info_url": "https://example.com/legal"
+  }

@@ -1,0 +1,88 @@
+openapi: 3.0.3
+info:
+  title: Zoo API
+  description: A plugin that allows the user to create and manage animals.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5002/api/zoo/v1
+paths:
+  /animals:
+    post:
+      summary: Create a new animal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Animal'
+      responses:
+        200:
+          description: Successfully created animal
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Animal'
+
+    put:
+      summary: Update an existing animal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Animal'
+      responses:
+        200:
+          description: Successfully updated animal
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Animal'
+
+  /animals/{id}:
+    get:
+      summary: Retrieve an animal by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successfully retrieved animal
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Animal'
+
+    delete:
+      summary: Delete an animal by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successfully deleted animal
+
+components:
+  schemas:
+    Animal:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: string
+          format: uuid
+        type:
+          type: string
+        name:
+          type: string
+      required:
+        - userId
+        - type
+        - name
