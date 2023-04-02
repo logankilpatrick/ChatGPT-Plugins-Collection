@@ -4,4 +4,4 @@ An unofficial collection of Plugins for ChatGPT, in any programming language! No
 
 ## Submit a plugin
 
-Please create a new folder under the relevant language with the plugin you want to add, and all of the asscoated code.
+Please create a new folder under the relevant language with the plugin you want to add, and all of the associated code.
