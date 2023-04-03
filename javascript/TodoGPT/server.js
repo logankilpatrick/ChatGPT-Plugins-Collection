@@ -46,7 +46,7 @@ app.get('/logo.png', (req, res) => {
 app.get('/.well-known/ai-plugin.json', (req, res) => {
   console.log("Trying to load plugin.json");
   const host = req.headers.host;
-  fs.readFile('./.well-known/ai-plugin.json', (err, text) => {
+  fs.readFile('./.well-known/ai-plugin.json', 'utf8', (err, text) => {
     if (err) {
       res.status(404).send('Not found');
     } else {
