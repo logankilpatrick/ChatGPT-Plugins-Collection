@@ -10,5 +10,8 @@ Please create a new folder for the plugin under the relevant language folder, an
 
 - [NotesGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/NotesGPT)
 - [TodoGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/TodoGPT)
+- [AnimalGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/AnimalGPT)
+- [SquareGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/SquareGPT)
+- [secretMessage](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/secretMessage)
 
 More coming soon! 
