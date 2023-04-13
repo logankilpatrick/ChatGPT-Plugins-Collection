@@ -1,0 +1,3 @@
+[submodule "typescript/gptzero-chat-plugin"]
+	path = typescript/gptzero-chat-plugin
+	url = https://github.com/drengskapur/gptzero-chat-plugin.git
