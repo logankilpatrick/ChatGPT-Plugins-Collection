@@ -1,3 +1,6 @@
 [submodule "typescript/gptzero-chat-plugin"]
 	path = typescript/gptzero-chat-plugin
 	url = https://github.com/drengskapur/gptzero-chat-plugin.git
+[submodule "typescript/open-trivia-chat-plugin"]
+	path = typescript/open-trivia-chat-plugin
+	url = https://github.com/drengskapur/open-trivia-database-chat-plugin.git
