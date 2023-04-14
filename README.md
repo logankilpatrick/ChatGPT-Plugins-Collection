@@ -8,10 +8,14 @@ Please create a new folder for the plugin under the relevant language folder, an
 
 ## Examples 👀 😯:
 
-- [NotesGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/NotesGPT)
-- [TodoGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/TodoGPT)
-- [AnimalGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/AnimalGPT)
-- [SquareGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/SquareGPT)
-- [secretMessage](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/secretMessage)
+| Plugin Name  | Description | Language | Framework |
+|--------------|-------------|----------|-----------|
+| [NotesGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/NotesGPT) | A plugin that allows users to create, retrieve, and delete notes. Each note is associated with a specific user. | Python | Quart |
+| [TodoGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/TodoGPT) | A plugin that allows users to add, retrieve, and delete to-do items. Each to-do item is associated with a specific user. | Python | Quart |
+| [AnimalGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/AnimalGPT) | A plugin that allows users to create, retrieve, update, and delete animals in a virtual zoo. Each animal is associated with a specific user. | Julia | HTTP.jl |
+| [SquareGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/SquareGPT) | A plugin that calculates the square of a given number. | Julia | HTTP.jl |
+| [secretMessage](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/python/secretMessage) | A FastAPI application that serves as a ChatGPT plugin for returning a secret message. | Python | FastAPI |
+| [TodoGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/javascript/TodoGPT) | A plugin that allows users to add, retrieve, and delete to-do items. Each to-do item is associated with a specific user. | JavaScript | Express.js |
+| [TodoGPT](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection/tree/main/julia/TodoGPT) | A plugin that allows users to add, retrieve, and delete to-do items. Each to-do item is associated with a specific user. | Julia | HTTP.jl |
 
 More coming soon! 
