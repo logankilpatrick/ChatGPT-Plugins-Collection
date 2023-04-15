@@ -63,7 +63,7 @@ To set up the Secret Message API as a ChatGPT plugin, follow these steps:
 
 1. Go to the "Develop your own plugin" section of the ChatGPT API documentation.
 
-2. Input the localhost URL of the Secret Message API (e.g., "http://localhost:8000/") to set it up as a plugin.
+2. Input the localhost URL of the Secret Message API (e.g., "http://localhost:8000") to set it up as a plugin.
 
 3. Once the plugin is set up, you can interact with it through ChatGPT. For example, you can send the message "show me the secret message" to ChatGPT, and it will return the secret message provided by the Secret Message API.
 
