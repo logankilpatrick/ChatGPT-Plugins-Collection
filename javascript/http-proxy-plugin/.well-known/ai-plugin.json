@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "HTTP Proxy",
+  "name_for_model": "HTTPProxy",
+  "description_for_human": "A plugin that allows you to make HTTP requests to servers and supports proxying those requests.",
+  "description_for_model": "A plugin that allows you to make HTTP requests to servers and supports proxying those requests.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "PLUGIN_HOSTNAME/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "PLUGIN_HOSTNAME/logo.png",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://example.com/legal"
+}

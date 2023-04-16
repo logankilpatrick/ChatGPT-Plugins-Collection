@@ -2,47 +2,27 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const app = express();
-const port = 8000;
+const port = 5004;
+const path = require("path");
+const axios = require("axios");
+const { exec } = require("child_process");
+const bodyParser = require("body-parser");
 
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors({ origin: "https://chat.openai.com" }));
 
-const todos = {};
+app.post("/run-command", (req, res) => {
+  const command = req.body.command;
 
-app.post("/todos/:username", (req, res) => {
-  const username = req.params.username;
-  const todo = req.body.todo;
-
-  if (!todos[username]) {
-    todos[username] = [];
+  if (!command) {
+    return res.status(400).json({ error: "No command provided" });
   }
 
-  console.log("Adding todo", todo, "for user", username);
-
-  todos[username].push(todo);
-  res.status(200).send("OK");
-});
-
-app.get("/todos/:username", (req, res) => {
-  const username = req.params.username;
-  console.log("req");
-  res.status(200).json(todos[username] || []);
-});
-
-app.delete("/todos/:username", (req, res) => {
-  const username = req.params.username;
-  const todoIdx = req.body.todo_idx;
-
-  if (todos[username] && 0 <= todoIdx && todoIdx < todos[username].length) {
-    todos[username].splice(todoIdx, 1);
-  }
-
-  res.status(200).send("OK");
-});
-
-app.get("/logo.png", (req, res) => {
-  res.sendFile("logo.png", { root: __dirname }, (err) => {
-    if (err) res.status(404).send("Not found");
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+    res.json({ stdout: stdout, stderr: stderr });
   });
 });
 

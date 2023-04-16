@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: Command API
+  description: A Command API to manage and run your commands
+  version: 1.0.0
+servers:
+  - url: PLUGIN_HOSTNAME
+paths:
+  /help:
+    get:
+      operationId: 'help'
+      summary: Get a list of all available commands
+
+  /run-command:
+    post:
+      operationId: 'runCommand'
+      summary: Run the specified command with the valid content in the request body
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                commandName:
+                  type: string
+                  description: the name of one of the valid commands from the help function. if you don't know, don't make up a command. just output the commands first.
+                data:
+                  type: string
+                  description: data is an stringified json object containing the valid command schema. 
+              required:
+                - name
+                - data
