@@ -1,0 +1,3 @@
+[submodule "python/query_plugin"]
+	path = python/query_plugin
+	url = https://github.com/shivag1992/query_plugin
