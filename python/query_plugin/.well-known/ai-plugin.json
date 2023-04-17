@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "QueryPlugin",
+  "name_for_human": "Query Plugin",
+  "description_for_model": "Plugin to understand and return queries about user specified files",
+  "description_for_human": "Plugin to understand and return queries about user specified files",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "http://localhost:3333/.well-known/openapi.yaml"
+  },
+  "logo_url": "http://localhost:3333/.well-known/logo.png",
+  "contact_email": "hello@contact.com",
+  "legal_info_url": "hello@legal.com"
+}

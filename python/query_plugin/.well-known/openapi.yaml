@@ -1,0 +1,39 @@
+paths:
+  /logQuery:
+    post:
+      summary: Receive a string query
+      operationId: logQuery
+      description: Endpoint to receive a user's query.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+              required:
+                - query
+      responses:
+        200:
+          description: Query logged successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                  - message
+components:
+  schemas:
+    QueryInput:
+      type: object
+      properties:
+        query:
+          type: string
+          description: The query string to be processed. If the query contains a URL, pass only the URL
+      required:
+        - query
