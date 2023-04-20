@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: Shell Command API
+  description: A simple API to run any shell command and return its output
+  version: 1.0.0
+servers:
+  - url: PLUGIN_HOSTNAME
+paths:
+  /run-command:
+    post:
+      operationId: runCommand
+      summary: Run a shell command
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  description: The shell command to run
+              required:
+                - command
+      responses:
+        '200':
+          description: The command was executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stdout:
+                    type: string
+                    description: The standard output of the command
+                  stderr:
+                    type: string
+                    description: The standard error of the command
+        '400':
+          description: Bad request - no command provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+        '500':
+          description: Internal server error - command execution failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message

@@ -1,0 +1,36 @@
+openapi: 3.0.1
+info:
+  title: HTTP Proxy API
+  description: An API to proxy HTTP requests to external servers.
+  version: "v1"
+servers:
+  - url: PLUGIN_HOSTNAME
+paths:
+  /proxy:
+    post:
+      operationId: proxyHttpRequest
+      summary: Proxy an HTTP request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url
+                - method
+              properties:
+                url:
+                  type: string
+                  description: The target URL to send the request to.
+                method:
+                  type: string
+                  description: The HTTP method to use for the request.
+                headers:
+                  type: object
+                  description: A JSON object containing the headers for the request.
+                  additionalProperties:
+                    type: string
+                body:
+                  type: string
+                  description: The request body, if applicable.

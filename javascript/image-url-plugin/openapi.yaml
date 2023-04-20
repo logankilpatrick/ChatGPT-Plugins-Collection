@@ -1,0 +1,12 @@
+openapi: 3.0.1
+info:
+  title: Image Link API
+  description: A simple API to return an image URL
+  version: 1.0.0
+servers:
+  - url: PLUGIN_HOSTNAME 
+paths:
+  /image:
+    get:
+      operationId: getImage
+      summary: Get image URL

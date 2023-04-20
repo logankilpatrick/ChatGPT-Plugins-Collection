@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Forms API",
+  "name_for_model": "FormsAPI",
+  "description_for_human": "An API for creating and managing interactive form sessions.",
+  "description_for_model": "This API allows users to create interactive form sessions, submit user input for form questions, and submit the completed form. It provides an efficient way to collect and process user input in a structured manner.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "PLUGIN_HOSTNAME/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "PLUGIN_HOSTNAME/logo.png",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://example.com/legal"
+}

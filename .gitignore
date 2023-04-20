@@ -1,2 +1,4 @@
 # igore node modules
 javascript/TodoGPT/node_modules
+node_modules**
+chatfiles

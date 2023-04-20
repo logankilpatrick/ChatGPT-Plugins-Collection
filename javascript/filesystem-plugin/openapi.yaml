@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: FileSystemPlugin
+  description: A file system api to save read, list and upsert files.
+servers:
+  - url: PLUGIN_HOSTNAME
+paths:
+  /fs/list:
+    post:
+      operationId: listFiles
+      summary: List files and directories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ListRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Path is not a directory
+        "404":
+          description: Path not found
+        "500":
+          description: Error reading directory or accessing path
+  /fs/read:
+    post:
+      operationId: readFile
+      summary: Read a file's contents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReadFileRequest"
+      responses:
+        "200":
+          description: File content successfully read
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReadFileResponse"
+        "404":
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Error reading file
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /fs/create:
+    post:
+      operationId: create
+      summary: Create a file or directory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRequest"
+      responses:
+        "201":
+          description: File or directory created
+        "400":
+          description: Path already exists or invalid type
+        "500":
+          description: Error creating file or directory
+  /fs/append:
+    post:
+      operationId: appendToFile
+      summary: Append content to a file
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppendToFileRequest"
+      responses:
+        "200":
+          description: Content successfully appended to file
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppendToFileResponse"
+        "404":
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Error appending to file
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    ListRequest:
+      type: object
+      properties:
+        path:
+          type: string
+          description: The path to the directory.
+        filename:
+          type: string
+          description: The name of the file or directory (optional).
+    ReadFileRequest:
+      type: object
+      properties:
+        path:
+          type: string
+          description: The relative path to the file
+      required:
+        - path
+
+    ReadFileResponse:
+      type: object
+      properties:
+        content:
+          type: string
+          description: The content of the file
+
+    AppendToFileRequest:
+      type: object
+      properties:
+        path:
+          type: string
+          description: The relative path to the file
+        content:
+          type: string
+          description: The content to append to the file
+      required:
+        - path
+        - content
+
+    AppendToFileResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A message indicating the operation's success
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: A description of the error that occurred
+
+    CreateRequest:
+      type: object
+      properties:
+        path:
+          type: string
+          description: The path to the directory where the file or directory will be created
+        filename:
+          type: string
+          description: The name of the file or directory to be created (optional)
+        type:
+          type: string
+          description: The type of the item to create, either "file" or "directory"
+        content:
+          type: string
+          description: The initial content of the file, if creating a file (optional)
+      required:
+        - path
+        - type

@@ -1,0 +1,170 @@
+openapi: 3.0.1
+info:
+  title: Forms API
+  description: An API to create and manage interactive form sessions.
+  version: 1.0.0
+servers:
+  - url: PLUGIN_HOSTNAME
+paths:
+  /create-session:
+    post:
+      operationId: 'createSession'
+      summary: Create a new form session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form_id:
+                  type: string
+                  description: ID of the form to be used in the session
+              required:
+                - form_id
+      responses:
+        '201':
+          description: Form session created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  session_id:
+                    type: string
+                    description: Unique ID of the form session
+                  currentQuestionId:
+                    type: integer
+                    description: The current question's index in the form
+                  allQuestions:
+                    type: array
+                    description: An array of all form questions
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: The question ID
+                        name:
+                          type: string
+                          description: The question name
+                        type:
+                          type: string
+                          description: The question type
+                        required:
+                          type: boolean
+                          description: Indicates if the question is required
+                        question:
+                          type: string
+                          description: The question text
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+
+  /submit-input:
+    post:
+      operationId: 'submitInput'
+      summary: Submit user input for the current question or form field
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                session_id:
+                  type: string
+                  description: Unique ID of the form session
+                user_input:
+                  type: string
+                  description: User input for the current question or form field
+              required:
+                - session_id
+                - user_input
+      responses:
+        '200':
+          description: User input submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nextQuestionId:
+                    type: integer
+                    description: The next question's index in the form
+                  nextQuestion:
+                    type: object
+                    description: The next question object
+                    properties:
+                      id:
+                        type: integer
+                        description: The question ID
+                      name:
+                        type: string
+                        description: The question name
+                      type:
+                        type: string
+                        description: The question type
+                      required:
+                        type: boolean
+                        description: Indicates if the question is required
+                      question:
+                        type: string
+                        description: The question text
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+
+  /submit-form:
+    post:
+      operationId: 'submitForm'
+      summary: Submit the form
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                session_id:
+                  type: string
+                  description: Unique ID of the form session
+              required:
+                - session_id
+      responses:
+        '200':
+          description: Form submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+
+       
